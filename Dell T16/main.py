@@ -4,7 +4,7 @@ from logica import logica
 
 
 
-table = pd.read_csv('/home/leonardo/Workspace/Teste-tecnicos/Dell T16/TA_PRECO_MEDICAMENTO.csv',
+table = pd.read_csv('./Dell T16/TA_PRECO_MEDICAMENTO.csv',
                      delimiter = ';',
                      encoding='unicode_escape',
                      low_memory=False)
@@ -22,6 +22,7 @@ fimLoop = False
 logica = logica(df)
 
 # print(df.loc[1])
+
 
 logica.buscaPorNome('MON')
 
