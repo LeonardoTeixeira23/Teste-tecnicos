@@ -4,7 +4,7 @@ import unidecode
 
 # Tabela importada com a biblioteca pandas para facilitar o tratamento de dados
 
-table = pd.read_csv('br-capes-bolsistas-uab.csv',
+table = pd.read_csv('/home/leonardo/Workspace/Teste-tecnicos/Dell/br-capes-bolsistas-uab.csv',
                     delimiter=';',
                     encoding='unicode_escape')
 
@@ -84,11 +84,13 @@ def exibir(df_tabela):
     sair_ou_continuar()
 
 # Tabela importada com a python puro, utilizado para percorrer a tabela e exibir as infimações desejadas
-
+df.loc[1]
+df.iloc[1]
+print(df.loc[1])
 while not sair:
-
+    
 # ======================================================================================================================
-
+    df
     entrada = input(f'\n[1] Pesquisar bolsista por ano.\n'
                     f'[2] Pesquisar bolsista por nome.\n'
                     f'[3] Obter valor médio das bolsas em um ano escolhido.\n'
@@ -97,7 +99,8 @@ while not sair:
                     f'\nSelecione uma opção: ')
 #=======================================================================================================================
     # Caso 1 primeiro bolsista por ano
-
+    df.iloc[1]
+    df
     if entrada == '1':
         ano = input('\ndigite o ano: ')
 
