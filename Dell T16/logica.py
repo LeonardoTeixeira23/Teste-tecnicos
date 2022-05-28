@@ -12,20 +12,15 @@ class logica(object):
     def buscaPorNome(self,entrada):
         dfTeste = self.df2020()
         dfTeste = dfTeste[['Subistancia', 'PRODUTO','APRESENTAÇÃO', 'PF Sem Impostos']]
-        dfTeste.loc[45]
-        print(dfTeste.loc[45])
-        dfVendi2020 = pd.DataFrame(columns={
-                                    'Subistancia',
-                                     'PRODUTO',
-                                     'APRESENTAÇÃO',
-                                      'PF Sem Impostos'
-                                    })
+        dfVendi2020 = pd.DataFrame()
+        
        # print(dfVendi2020.iloc[0])
         index = 0
         for i in dfTeste['Subistancia']:
             if entrada in i:
-    
-                dfVendi2020 = pd.concat([dfVendi2020, dfTeste.loc[index]], ignore_index=True)
+                #print(dfTeste.iloc[index])
+                df2 = dfTeste.iloc[[index]]
+                dfVendi2020 = pd.concat([dfVendi2020,df2], ignore_index=True)
                 
             index+=1
         print(dfVendi2020)
