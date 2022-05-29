@@ -1,45 +1,32 @@
-# from os import rename
-import pandas as pd
 from logica import logica
 
 
+fim_loop = False
 
-table = pd.read_csv('./Dell T16/TA_PRECO_MEDICAMENTO.csv',
-                     delimiter = ';',
-                     encoding='unicode_escape',
-                     low_memory=False)
+logica = logica()
 
-df = pd.DataFrame(table.rename(
-                columns={
-                    'SUBSTÂNCIA': "Subistancia"
-
-                }))
-
-# print(df.loc[1])
-# print(df.loc[df['COMERCIALIZAÇÃO 2020'] == 'Sim',['Subistancia', 'CNPJ']])
-
-fimLoop = False
-logica = logica(df)
-
-# print(df.loc[1])
-
-
-logica.buscaPorNome('MON')
-
-while not fimLoop:
+while not fim_loop:
 
     entrada = input(f'[1] Fazer busca por nome\n'
                     f'[2] Buscar por codigo de barras\n'
-                    f'[3] Exibir percentual de medicamestos N,N,P em 2020'
-                    f'[0] Para sair')
+                    f'[3] Comparativo da lista de concessão de crédito tributário (PIS/COFINS) 2020\n'
+                    f'[0] Para sair\n'
+                    f'Escolha uma opção: ')
     
     if entrada == '1':
-        print()
+        nome = input(f'Insira o produto que deseja buscar: ')
+        logica.busca_por_nome(nome)
+        
     elif entrada == '2':
-        print()
+        codigo = input(f'Inisira o codigo de barras: ')
+        logica.busca_cod_barras(codigo)
+
     elif entrada == '3':
-        print()
+        logica.comparativo_lista_concessao()
+        
     elif entrada == '0':
-        print()
+        fim_loop = True
     else:
+
         print()
+
