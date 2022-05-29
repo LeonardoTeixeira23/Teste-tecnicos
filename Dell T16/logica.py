@@ -1,9 +1,5 @@
-from re import T
-from tkinter.tix import Tree
-from cupshelpers import Printer
 import pandas as pd
 import unidecode as uni
-
 
 
 class logica(object):
@@ -40,21 +36,24 @@ class logica(object):
 
 
         if df_2020_por_nome.empty == True:
-            print('Produto não encotrado.')
+            print('Produto não encotrado.\n')
         else: 
-            print(df_2020_por_nome)
+            print('\n',df_2020_por_nome)
 
     def busca_cod_barras(self, entrada):
         
-        prod = self.df.loc[self.df['EAN 1'] == entrada, 'PRODUTO'].item()
-        df_prod = self.df.loc[self.df['PRODUTO'] == prod]
+        try:
+            prod = self.df.loc[self.df['EAN 1'] == entrada, 'PRODUTO'].item()
+            df_prod = self.df.loc[self.df['PRODUTO'] == prod]
         
-        df_pmc = df_prod['PMC 0%'].str.replace(',','.')
-        df_pmc = df_pmc.astype(float)
+            df_pmc = df_prod['PMC 0%'].str.replace(',','.')
+            df_pmc = df_pmc.astype(float)
         
-        min = df_pmc.min()
-        max = df_pmc.max()
-       
+            min = df_pmc.min()
+            max = df_pmc.max()
+        except:
+            df_prod = pd.DataFrame()
+
         if df_prod.empty == True:
             print('\nCodigo de barras não encotrado')
         else:
