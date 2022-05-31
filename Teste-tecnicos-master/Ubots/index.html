@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filmes</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<header></header>
+    <form data-js="form-add-movie" class="cadastro">
+        
+        <label class="label" for="titulo">Titulo</label>
+        <input class="input input-style" id="titulo" type="text" placeholder="Nome do filme" name="tituloFilme">
+        
+        <label class="label" for="sinopse">Descrição</label>
+        <textarea class="input input-style" name="sinopse" rows="14" cols="10" placeholder="Sinopse do filme"></textarea>
+        <!-- <input class="input" id="sinopse" type="text" placeholder="Sinopse do filme" name="sinopseFilme"> -->
+        
+        <label class="label" for="lancamento"> Data de lancamento</label>
+        <input class="input input-style" id="lancamento" type="number" placeholder="1999" name="lancamentoFilme" >
+        
+        <!-- <label for="capadofilme">Capa do filme</label>
+            <input id="capadofilme" type="file" accept="image/png,jpg" alt="Campo para ser adicionado uma imagem do filme"> -->
+            
+            <input class="submit" type="submit" value="Cadastrar filme">
+        </form>
+    </header>
+    <body>
+        <div class="conteiner">
+            <h1>Filmes</h1><br>
+            <ul data-js="movies-list" class="movieList" ></ul>
+        </div>
+    </body>
+    
+    <script type="module" src="./main.js"></script>
+    </html>
