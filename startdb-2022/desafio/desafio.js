@@ -1,7 +1,7 @@
 const readline = require('readline-sync');
 const Forca = require('./forca');
 
-const palavras =['abacaxi', 'computador', 'dbserver', 'inclusao', 'divercidade']
+const palavras =['abacaxi', 'computador', 'dbserver', 'inclusao', 'diversidade']
 let index = Math.floor(Math.random() * palavras.length)
 
 const jogo = new Forca(index);
